@@ -1,4 +1,232 @@
+html {
+  font-size: 16px;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 body {
-  background-color: aqua;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+#root {
+  flex: 1;
+  width: 100%;
 }
 
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2.25rem; }
+p { font-size: 2rem; }
+label, input { font-size: 2rem; }
+span { font-size: 1.5rem; }
+button { font-size: 1.5rem; }
+
+h1, h2, h3, p, label, input, span {
+  font-family: verdana, helvetica, sans-serif;
+  text-align: center;
+  margin: 0 auto;
+  padding: .15rem;
+  background-color: none;
+}
+/* Button styles. --------------------------------------------- */
+button {
+  font-family: verdana, helvetica, sans-serif;
+  text-align: center;
+  margin: .2rem auto;
+  color: white;
+  background-color: black;
+  border: .15rem solid white;
+  box-shadow: 0 0.15rem black, 0 -0.15rem black, 0.15rem 0 black, -0.15rem 0 black;
+  border-radius: .5rem;
+  padding: .15rem .25rem;
+}
+button:hover {
+  color: black;
+  background-color: white;
+  cursor: pointer;
+}
+/* Header styles. --------------------------------------------- */
+.header {
+  width: 100%;
+  margin: 0 auto .75rem;
+  padding-bottom: .25rem;
+  background-color: cornflowerblue;
+}
+.header h1, .header h2 {
+  text-shadow: 0 0.15rem white, 0 -0.15rem white, 0.15rem 0 white, -0.15rem 0 white;
+}
+/* Main styles. ------------------------------------------------ */
+.main {
+  width: 90%;
+  height: 60%;
+  margin: 0 auto;
+  background-color: cornflowerblue;
+  border: .15rem solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.main h3 {
+  width: 100%;
+  background-color: cornflowerblue;
+}
+/* Abbreviations containers -------------------------------- */
+.abbrContainer {
+  width: 98%;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+}
+.abbrContainer .rowHeaderDiv {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+.abbrRow {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% auto 15%;
+  padding: 0;
+  margin: 0;
+}
+.abbrRow div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: .3rem 0;
+  border: .15rem solid black;
+}
+.rowHeader {
+  font-weight: bold;
+}
+/* The Modal Cover. ------------------------------------------- */
+.modalDiv {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: grey;
+  opacity: 85%;
+}
+/* The Add Abbreviation, Update & Delete Modals --------------- */
+.addAbbrevModal, .updateAbbrevModal, .reloadDiv {
+  background-color: white;
+  border: .25rem solid black;
+  position: fixed;
+  top: 20%;
+  left: 5%;
+  width: 90%;
+  height: 63%;
+  z-index: 2;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.addAbbrevModal button, .updateAbbrevModal button {
+  min-width: 50%;
+}
+.addAbbrevModal form, .updateAbbrevModal form {
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  border-top: .25rem solid black;
+}
+.abbrevInputCont {
+  width: 90%;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+}
+.abbrevInputCont input {
+  width: 90%;
+  text-align: left;
+  margin-bottom: .5rem;
+}
+.abbrevInputCont label {
+  font-weight: bold;
+}
+.updButtonsCont {
+  padding-top: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.updButtonsCont button {
+  min-width: 40%;
+}
+.delete, .cancel {
+  background-color: red;
+}
+/* Footer styles. -------------------------------------------- */
+.footer {
+  width: 100%;
+  margin: 1.5rem auto 0;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  background-color: cornflowerblue;
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+}
+.footer button, .reloadDiv button { 
+  width: 60%; 
+  font-size: 2rem;
+  font-weight: bold;
+}
+.reloadDiv button { 
+  padding-top: 2rem; 
+  padding-bottom: 2rem; 
+}
+/* Media queries. -------------------------------------------- */
+@media screen and (min-width: 801px) {
+  html { font-size: 12px; }
+  body { width: 80%; }
+  .main { width: 100%; }
+  .footer { width: 80%; }
+  .addAbbrevModal, .updateAbbrevModal, .reloadDiv { width: 80%; }
+}
+@media screen and (max-width: 800px) {
+  html { font-size: 12px; }
+}
+@media screen and (max-width: 600px) {
+  .abbrRow {
+    grid-template-columns: 20% auto 20%;
+  }
+}
+@media screen and (max-width: 500px) {
+  html { font-size: 8px; }
+  button { border-radius: .4rem; }
+}
+@media screen and (max-width: 400px) and (max-height: 700px) {
+  .main { height: 72%; }
+  .main h3 { margin-top: 1.5rem; }
+  .footer { height: 15%; }
+  .abbrRow div { padding: 1rem 0; }
+  .abbrRow div button { padding: .5rem 0.4rem; }
+  .abbrContainer { height: 90%; }
+  .addAbbrevModal, .updateAbbrevModal, .reloadDiv {
+    top: 13%;
+    width: 90%;
+    height: 55%;
+  }
+  .addAbbrevModal *, .updateAbbrevModal * {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}

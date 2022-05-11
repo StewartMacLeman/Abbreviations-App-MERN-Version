@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import Header from "./components/Header";
+import Main from "./components/Main";
+import ModalDiv from "./components/forms/ModalDiv";
+import ReloadButton from "./components/forms/ReloadButton";
+import CreateAbbrevForm from "./components/forms/CreateAbbrevForm";
+import EditDeleteForm from "./components/forms/EditDeleteForm";
+import Footer from "./components/Footer";
 
 const App = () => {
+  const [showModelDiv, setShowModelDiv] = useState(true);
+  const [showReloadDiv, setShowReloadDiv] = useState(true);
+  const [showCreateForm, setShowCreateForm] = useState(false);
+  const [showEditDelForm, setShowEditDelForm] = useState(false);
+
   return (
-    <h1>This is a test element!</h1>
-  )
-}
+    <>
+      <Header />
+      <Main />
+      {showModelDiv && <ModalDiv />}
+      {showReloadDiv && <ReloadButton />}
+      {showCreateForm && <CreateAbbrevForm />}
+      {showEditDelForm && <EditDeleteForm />}
+      <Footer />
+    </>
+  );
+};
 
 export default App;
