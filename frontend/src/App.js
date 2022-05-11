@@ -8,8 +8,8 @@ import EditDeleteForm from "./components/forms/EditDeleteForm";
 import Footer from "./components/Footer";
 
 const App = () => {
-  const [showModelDiv, setShowModelDiv] = useState(true);
-  const [showReloadDiv, setShowReloadDiv] = useState(true);
+  const [showModelDiv, setShowModelDiv] = useState(false);
+  const [showReloadDiv, setShowReloadDiv] = useState(false);
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [showEditDelForm, setShowEditDelForm] = useState(false);
 
