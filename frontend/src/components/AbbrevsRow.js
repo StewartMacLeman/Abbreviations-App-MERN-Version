@@ -1,6 +1,6 @@
 import React from "react";
 
-const AbbrevsRow = ({_id, abbrev, definition, openEditDelModal}) => {
+const AbbrevsRow = ({ _id, abbrev, definition, openEditDelModal }) => {
   return (
     <div className="abbrRow">
       <div>

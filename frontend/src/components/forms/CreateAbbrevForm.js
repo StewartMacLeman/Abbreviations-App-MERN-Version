@@ -6,7 +6,7 @@ const CreateAbbrevForm = ({
   newAbbrev,
   setNewAbbrev,
   newDefinition,
-  setNewDefinition
+  setNewDefinition,
 }) => {
   return (
     <div className="addAbbrevModal">

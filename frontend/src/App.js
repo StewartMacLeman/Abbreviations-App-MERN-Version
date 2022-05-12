@@ -90,7 +90,6 @@ const App = () => {
   // ----------------------------
   const confirmNewAbbrev = (e) => {
     e.preventDefault();
-    console.log("The confirm add button was clicked!");
     if (
       (!newAbbrev && !newDefinition) ||
       (newAbbrev && !newDefinition) ||
@@ -135,16 +134,73 @@ const App = () => {
     setShowEditDelForm(false);
   };
   // Edit an Abbrev. -----------------------------------
+  const editAbbrev = async (id, edited_abbrev, edited_definition) => {
+    let editedAbbrevObject = {
+      id: id,
+      edited_abbrev: edited_abbrev,
+      edited_definition: edited_definition,
+    };
+    try {
+      await fetch(URL, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(editedAbbrevObject),
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const confirmEditedAbbrev = (e) => {
     e.preventDefault();
-    console.log("The confirm Edited button was clicked!");
+    // Fetch function call!
+    editAbbrev(abbrevId, editAbbrevStart, editDefinStart);
+    // -----------------------------------------------
+    let editedObject = {
+      _id: abbrevId,
+      abbrev: editAbbrevStart,
+      definition: editDefinStart,
+    };
+    let idArray = abbrevs.map((item) => item._id);
+    let idIndexNumber = idArray.indexOf(abbrevId);
+    let editedAbbrevs = abbrevs.map((item, index) => {
+      if (index == idIndexNumber) {
+        return editedObject;
+      } else {
+        return item;
+      }
+    });
+    setAbbrevs(editedAbbrevs);
     // ------------------------------
-    setShowModalDiv(false);
-    setShowEditDelForm(false);
+    cancelEditDel();
   };
   // Delete an Abbrev. -----------------------------------
+  const deleteAbbrev = async (delAbrv) => {
+    let newAbbrevObject = {
+      id: delAbrv,
+    };
+    try {
+      await fetch(URL, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newAbbrevObject),
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const confirmDelete = () => {
-    console.log("The Delete button was clicked!");
+    // Fetch function call!
+    deleteAbbrev(abbrevId);
+    // ---------------------
+    let amendedAbbrevs = abbrevs.filter((abbrev) => {
+      return abbrev._id != abbrevId;
+    });
+    setAbbrevs(amendedAbbrevs);
+    setAbbrevId("");
     // ------------------------------
     setShowModalDiv(false);
     setShowEditDelForm(false);

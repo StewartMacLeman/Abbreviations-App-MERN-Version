@@ -7,7 +7,7 @@ const EditDeleteForm = ({
   editDefinStart,
   setEditDefinStart,
   confirmEditedAbbrev,
-  confirmDelete
+  confirmDelete,
 }) => {
   return (
     <div className="updateAbbrevModal">
