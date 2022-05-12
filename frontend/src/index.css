@@ -62,7 +62,7 @@ button:hover {
 /* Main styles. ------------------------------------------------ */
 .main {
   width: 90%;
-  height: 60%;
+  height: 60vh;
   margin: 0 auto;
   background-color: cornflowerblue;
   border: .15rem solid black;
@@ -199,7 +199,10 @@ button:hover {
   body { width: 80%; }
   .main { width: 100%; }
   .footer { width: 80%; }
-  .addAbbrevModal, .updateAbbrevModal, .reloadDiv { width: 80%; }
+  .addAbbrevModal, .updateAbbrevModal, .reloadDiv { 
+    width: 80%;
+    left: 10%; 
+  }
 }
 @media screen and (max-width: 800px) {
   html { font-size: 12px; }
@@ -214,7 +217,7 @@ button:hover {
   button { border-radius: .4rem; }
 }
 @media screen and (max-width: 400px) and (max-height: 700px) {
-  .main { height: 72%; }
+  .main { height: 72vh; }
   .main h3 { margin-top: 1.5rem; }
   .footer { height: 15%; }
   .abbrRow div { padding: 1rem 0; }

@@ -1,9 +1,9 @@
 import React from "react";
 
-const ReloadButton = () => {
+const ReloadButton = ({reloadAbbrevs}) => {
     return (
         <div className="reloadDiv">
-            <button>Click to refresh!</button>
+            <button onClick={reloadAbbrevs}>Click to refresh!</button>
         </div>
     )
 }
