@@ -1,7 +1,7 @@
 import React from "react";
 import AbbrevsRow from "./AbbrevsRow";
 
-const AbbrevsCont = () => {
+const AbbrevsCont = ({ abbrevsData, openEditDelModal }) => {
   return (
     <div className="abbrContainer">
       <div className="abbrRow rowHeaderDiv">
@@ -15,9 +15,17 @@ const AbbrevsCont = () => {
           <span className="rowHeader">Update</span>
         </div>
       </div>
-      <AbbrevsRow />
-      <AbbrevsRow />
-      <AbbrevsRow />
+      {abbrevsData.map((item) => {
+        return (
+          <AbbrevsRow
+            key={item._id}
+            _id={item._id}
+            abbrev={item.abbrev}
+            definition={item.definition}
+            openEditDelModal={openEditDelModal}
+          />
+        );
+      })}
     </div>
   );
 };

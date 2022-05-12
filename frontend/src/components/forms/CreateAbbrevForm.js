@@ -1,13 +1,13 @@
 import React from "react";
 
-const CreateAbbrevForm = () => {
+const CreateAbbrevForm = ({confirmNewAbbrev, cancelCreateFormModal}) => {
   return (
     <div className="addAbbrevModal">
-      <button className="cancel" type="button">
+      <button className="cancel" type="button" onClick={cancelCreateFormModal}>
         Cancel
       </button>
 
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={confirmNewAbbrev}>
         <div className="abbrevInputCont">
           <label htmlFor="abbrev">Abbreviation: </label>
           <input type="text" id="abbrev" autoComplete="off" autoFocus />

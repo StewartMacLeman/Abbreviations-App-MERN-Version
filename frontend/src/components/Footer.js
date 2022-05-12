@@ -1,9 +1,9 @@
 import React from "react";
 
-const Footer = () => {
+const Footer = ({openCreateFormModal}) => {
   return (
     <footer className="footer">
-      <button type="button">Click to add more!</button>
+      <button type="button" onClick={openCreateFormModal}>Click to add more!</button>
     </footer>
   );
 };

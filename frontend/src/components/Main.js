@@ -1,11 +1,11 @@
 import React from "react";
 import AbbrevsCont from "./AbbrevsCont";
 
-const Main = () => {
+const Main = ({abbrevsData, openEditDelModal}) => {
   return (
     <main className="main">
       <h3>Your Abbrevs.</h3>
-      <AbbrevsCont />
+      <AbbrevsCont abbrevsData={abbrevsData} openEditDelModal={openEditDelModal}/>
     </main>
   );
 };

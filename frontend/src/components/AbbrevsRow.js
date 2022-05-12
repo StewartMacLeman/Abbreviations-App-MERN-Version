@@ -1,16 +1,16 @@
 import React from "react";
 
-const AbbrevsRow = () => {
+const AbbrevsRow = ({_id, abbrev, definition, openEditDelModal}) => {
   return (
     <div className="abbrRow">
       <div>
-        <span>ABRV</span>
+        <span className="abbrevValue">{abbrev}</span>
       </div>
       <div>
-        <span>A definition</span>
+        <span className="definValue">{definition}</span>
       </div>
       <div>
-        <button type="button" value="">
+        <button type="button" value={_id} onClick={openEditDelModal}>
           Update
         </button>
       </div>
